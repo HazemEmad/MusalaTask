@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
-import AppNavigation from './src/navigations';
 import './src/localization/i18n';
+import AppNavigation from './src/navigations';
 
 function App(): React.JSX.Element {
   return (
