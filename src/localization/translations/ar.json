@@ -1,0 +1,10 @@
+{
+  "language": "Arabic",
+  "settings": {
+    "title": "الاعدادات",
+    "changeLang": "تغيير اللغه الى الانجليزيه"
+  },
+  "home": {
+    "title": "الرئيسيه"
+  }
+}

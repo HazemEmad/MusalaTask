@@ -1,0 +1,10 @@
+{
+  "language": "English",
+  "settings": {
+    "title": "Settings",
+    "changeLang": "Change Language To Arabic"
+  },
+  "home": {
+    "title": "Home"
+  }
+}

@@ -1,0 +1,1 @@
+export const STORE_LANGUAGE_KEY = 'STORE_LANGUAGE_KEY';
