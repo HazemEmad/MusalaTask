@@ -1,6 +1,6 @@
 import React, {memo, useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
-import {I18nManager, StyleSheet, Text, View} from 'react-native';
+import {I18nManager, Pressable, StyleSheet, Text, View} from 'react-native';
 import RNRestart from 'react-native-restart';
 import {fs, pxW} from '../../utils/layouts';
 
@@ -16,9 +16,9 @@ function Settings(): React.JSX.Element {
 
   return (
     <View style={style.container}>
-      <Text style={style.textStyle} onPress={changeLang}>
-        {t('settings.changeLang')}
-      </Text>
+      <Pressable onPress={changeLang}>
+        <Text style={style.textStyle}>{t('settings.changeLang')}</Text>
+      </Pressable>
     </View>
   );
 }

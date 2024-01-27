@@ -1,16 +1,15 @@
-import {Alert} from 'react-native';
-import {HTTP} from '..';
-import i18n from '../../localization/i18n';
-import {newResponseErrorType, newResponseType} from './types';
 import {AxiosError} from 'axios';
+import {Alert, I18nManager} from 'react-native';
+import {HTTP} from '..';
+import {newResponseErrorType, newResponseType} from './types';
 
 export const newsService = {
   everyThing: (q: string = '', page: number = 1) =>
     HTTP.get<newResponseType>('everything', {
       params: {
-        q: encodeURIComponent(`"${q}"`),
+        q: encodeURI(`"${q}"`),
         page,
-        language: i18n.language,
+        language: I18nManager.isRTL ? 'ar' : 'en',
         pageSize: 20,
       },
     })
