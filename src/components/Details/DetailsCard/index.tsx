@@ -1,15 +1,16 @@
 import moment from 'moment';
 import React, {FC, memo} from 'react';
 import {useTranslation} from 'react-i18next';
-import {Image, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import {articles} from '../../../services/newsService/types';
 import {style} from './style';
+import AppImage from '../../common/Image/Image';
 
 const DetailsCard: FC<{article: articles}> = ({article}) => {
   const [t] = useTranslation();
   return (
     <View>
-      <Image style={style.image} source={{uri: article?.urlToImage}} />
+      <AppImage style={style.image} uri={article?.urlToImage} />
       <View style={style.subContainer}>
         <Text style={[style.title, style.mb20]}>{article?.title}</Text>
         <Text style={[style.text, style.mb20]}>{article?.description}</Text>
