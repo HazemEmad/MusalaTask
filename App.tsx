@@ -3,6 +3,7 @@ import {SafeAreaView, StyleSheet} from 'react-native';
 import AppNavigation from './src/navigations';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import './src/localization/i18n';
+import 'react-native-gesture-handler';
 
 function App(): React.JSX.Element {
   const queryClient = new QueryClient();

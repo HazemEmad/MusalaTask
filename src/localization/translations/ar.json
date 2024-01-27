@@ -10,6 +10,9 @@
     "source": "المصدر: ",
     "searchPlaceHolder": "اكتب كلمات للبحث"
   },
+  "details": {
+    "title": "التفاصيل"
+  },
   "common": {
     "empty": "لا يوجد اي اخبار"
   }

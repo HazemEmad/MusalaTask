@@ -1,16 +1,23 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
-import React from 'react';
+import React, {useCallback} from 'react';
 
-import {fs} from '../utils/layouts';
-import Home from '../screens/Home';
-import Settings from '../screens/Settings';
-import {StyleSheet, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
+import {StyleSheet} from 'react-native';
+import TabBarLabel from '../components/common/TabBarLabel';
+import Settings from '../screens/Settings';
+import {fs} from '../utils/layouts';
+import HomeStack from './HomeStack';
+import {MAIN_NAV} from '../utils/constants';
 
 const Tab = createBottomTabNavigator();
 const AppNavigation = () => {
   const {t} = useTranslation();
+
+  const renderTabBar = useCallback(
+    (title: string) => <TabBarLabel title={title} />,
+    [],
+  );
 
   return (
     <NavigationContainer>
@@ -21,18 +28,18 @@ const AppNavigation = () => {
           tabBarLabelStyle: style.labelStyle,
         }}>
         <Tab.Screen
-          name="Home"
-          component={Home}
+          name={MAIN_NAV.homeStack}
+          component={HomeStack}
           options={{
-            tabBarLabel: () => <Text> {t('home.title')}</Text>,
-            headerTitle: t('home.title'),
+            tabBarLabel: () => renderTabBar(t('home.title')),
+            header: () => null,
           }}
         />
         <Tab.Screen
-          name="Settings"
+          name={MAIN_NAV.settings}
           component={Settings}
           options={{
-            tabBarLabel: () => <Text> {t('settings.title')}</Text>,
+            tabBarLabel: () => renderTabBar(t('settings.title')),
             headerTitle: t('settings.title'),
           }}
         />
