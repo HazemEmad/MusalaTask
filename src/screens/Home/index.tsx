@@ -4,7 +4,7 @@ import Search from '../../components/Home/SearchCard';
 import {useNews} from '../../hooks/useNews';
 
 function Home(): React.JSX.Element {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState<string>();
   const {data, isFetching, refetch, fetchNextPage} = useNews(searchQuery);
   return (
     <>

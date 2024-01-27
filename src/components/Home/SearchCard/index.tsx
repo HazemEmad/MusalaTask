@@ -7,8 +7,8 @@ import {debounce} from 'lodash';
 
 interface SearchProps {
   onSearch: () => void;
-  searchQuery: string;
-  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
+  searchQuery?: string;
+  setSearchQuery: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
 
 const Search: React.FC<SearchProps> = ({
@@ -25,7 +25,7 @@ const Search: React.FC<SearchProps> = ({
   const debouncedSearch = useCallback(debounce(onSearch, 300), []);
 
   useEffect(() => {
-    if (searchQuery) {
+    if (searchQuery !== undefined) {
       debouncedSearch();
     }
   }, [searchQuery]);
