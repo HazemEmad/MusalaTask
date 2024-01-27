@@ -28,7 +28,7 @@ const NewsList: FC<NewsListType> = ({
   return (
     <FlatList
       testID="newsList"
-      style={style.container}
+      contentContainerStyle={style.container}
       data={news}
       keyExtractor={keyExtractor}
       renderItem={renderItems}

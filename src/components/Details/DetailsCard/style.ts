@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {I18nManager, StyleSheet} from 'react-native';
 import {fs, pxH, pxW} from '../../../utils/layouts';
 
 export const style = StyleSheet.create({
@@ -14,10 +14,12 @@ export const style = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: fs(19),
     color: '#000',
+    textAlign: I18nManager.isRTL ? 'left' : 'right',
   },
   text: {
     fontSize: fs(15),
     color: '#000',
+    textAlign: I18nManager.isRTL ? 'left' : 'right',
   },
   boldText: {
     fontWeight: 'bold',

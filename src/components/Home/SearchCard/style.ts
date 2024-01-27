@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {I18nManager, StyleSheet} from 'react-native';
 import {pxH, pxW} from '../../../utils/layouts';
 
 export const style = StyleSheet.create({
@@ -11,5 +11,6 @@ export const style = StyleSheet.create({
     paddingVertical: pxH(20),
     alignItems: 'center',
     backgroundColor: '#fff',
+    textAlign: I18nManager.isRTL ? 'right' : 'left',
   },
 });

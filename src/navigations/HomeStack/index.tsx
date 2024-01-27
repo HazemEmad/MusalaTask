@@ -15,6 +15,7 @@ const HomeStack = () => {
         component={Home}
         options={{
           headerTitle: t('home.title'),
+          headerBackTitleVisible: false,
         }}
       />
       <Stack.Screen
@@ -22,6 +23,7 @@ const HomeStack = () => {
         component={Details}
         options={{
           headerTitle: t('details.title'),
+          headerBackTitleVisible: false,
         }}
       />
     </Stack.Navigator>
