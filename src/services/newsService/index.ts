@@ -7,10 +7,11 @@ export const newsService = {
   everyThing: (q: string = '', page: number = 1) =>
     HTTP.get<newResponseType>('everything', {
       params: {
-        q: encodeURI(`"${q}"`),
+        q: encodeURI(`${q}`),
         page,
         language: I18nManager.isRTL ? 'ar' : 'en',
         pageSize: 20,
+        domains: ',',
       },
     })
       .then(res => ({...res.data, page}))

@@ -22,10 +22,12 @@ export const useNews = (searchQuery: string = '') => {
         ? lastPage?.page + 1
         : undefined,
   });
+
   const data = useMemo(
     () => useNewsQuery.data?.pages.flatMap(item => item.articles) || [],
     [useNewsQuery.data],
   );
+
   const refetch = useCallback(() => {
     queryClient.setQueryData([QUERIES_KEYS.news], () => {
       return {
@@ -43,6 +45,7 @@ export const useNews = (searchQuery: string = '') => {
       useNewsQuery.fetchNextPage(),
     [useNewsQuery],
   );
+
   return {
     ...useNewsQuery,
     data,

@@ -22,7 +22,7 @@ const Search: React.FC<SearchProps> = ({
     setSearchQuery(text);
   }, []);
 
-  const debouncedSearch = useCallback(debounce(onSearch, 300), []);
+  const debouncedSearch = useCallback(debounce(onSearch, 500), []);
 
   useEffect(() => {
     if (searchQuery !== undefined) {
@@ -36,6 +36,7 @@ const Search: React.FC<SearchProps> = ({
       value={searchQuery}
       onChangeText={onChangeText}
       style={style.container}
+      maxLength={500}
     />
   );
 };
