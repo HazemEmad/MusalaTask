@@ -1,4 +1,4 @@
-import React, {FC, memo, useCallback} from 'react';
+import React, {FC, memo, useCallback, useMemo} from 'react';
 import {FlatList, RefreshControl} from 'react-native';
 import {articles} from '../../../services/newsService/types';
 import Empty from '../../common/Empty';
@@ -25,6 +25,18 @@ const NewsList: FC<NewsListType> = ({
     [],
   );
 
+  const EmptyComponent = useMemo(() => <Empty loading={loading} />, [loading]);
+
+  const LoaderComponent = useMemo(
+    () => <Loader loading={loading} />,
+    [loading],
+  );
+
+  const RefreshControlComponent = useMemo(
+    () => <RefreshControl refreshing={loading} onRefresh={refreshData} />,
+    [loading, refreshData],
+  );
+
   return (
     <FlatList
       testID="newsList"
@@ -33,11 +45,9 @@ const NewsList: FC<NewsListType> = ({
       keyExtractor={keyExtractor}
       renderItem={renderItems}
       onEndReached={onEndReached}
-      ListEmptyComponent={<Empty loading={loading} />}
-      refreshControl={
-        <RefreshControl refreshing={loading} onRefresh={refreshData} />
-      }
-      ListFooterComponent={<Loader loading={loading} />}
+      ListEmptyComponent={EmptyComponent}
+      refreshControl={RefreshControlComponent}
+      ListFooterComponent={LoaderComponent}
     />
   );
 };
