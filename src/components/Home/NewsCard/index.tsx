@@ -1,15 +1,17 @@
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {FC, memo, useCallback} from 'react';
 import {Image, Pressable, Text, View} from 'react-native';
+import {HomeStackParamList} from '../../../navigations/HomeStack/types/HomeStack.type';
 import {articles} from '../../../services/newsService/types';
 import {style} from './style';
-import {useNavigation} from '@react-navigation/native';
-import {HOME_STACK_NAV} from '../../../utils/constants';
 
 const NewsCard: FC<{article: articles}> = ({article}) => {
-  const navigation = useNavigation<any>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<HomeStackParamList>>();
 
   const onPress = useCallback(() => {
-    navigation.navigate(HOME_STACK_NAV.details, {article});
+    navigation.navigate('Details', {article});
   }, [navigation, article]);
 
   return (

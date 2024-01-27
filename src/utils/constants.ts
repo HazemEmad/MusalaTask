@@ -6,7 +6,3 @@ export const MAIN_NAV = {
   homeStack: 'HomeStack',
   settings: 'Settings',
 };
-export const HOME_STACK_NAV = {
-  home: 'Home',
-  details: 'Details',
-};

@@ -1,25 +1,26 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import Home from '../../screens/Home';
-import Details from '../../screens/Details';
 import {useTranslation} from 'react-i18next';
-import {HOME_STACK_NAV} from '../../utils/constants';
+import Details from '../../screens/Details';
+import Home from '../../screens/Home';
+import {HomeStackParamList} from './types/HomeStack.type';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<HomeStackParamList>();
+
 const HomeStack = () => {
   const [t] = useTranslation();
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name={HOME_STACK_NAV.home}
-        component={Home}
+        name={'Home'}
+        component={Home as React.ComponentType}
         options={{
           headerTitle: t('home.title'),
           headerBackTitleVisible: false,
         }}
       />
       <Stack.Screen
-        name={HOME_STACK_NAV.details}
+        name={'Details'}
         component={Details}
         options={{
           headerTitle: t('details.title'),
@@ -29,4 +30,5 @@ const HomeStack = () => {
     </Stack.Navigator>
   );
 };
+
 export default HomeStack;
