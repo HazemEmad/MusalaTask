@@ -2,6 +2,7 @@ import {useInfiniteQuery, useQueryClient} from '@tanstack/react-query';
 import {newsService} from '../services/newsService';
 import {newResponseType} from '../services/newsService/types';
 import {QUERIES_KEYS} from '../utils/constants';
+import {useCallback, useMemo} from 'react';
 
 export type NewsParams = {
   q: string;
@@ -12,7 +13,7 @@ export const useNews = (searchQuery: string = '') => {
   const queryClient = useQueryClient();
 
   const useNewsQuery = useInfiniteQuery<newResponseType, newResponseType>({
-    queryKey: QUERIES_KEYS.news,
+    queryKey: [QUERIES_KEYS.news],
     queryFn: ({pageParam}) =>
       newsService.everyThing(searchQuery, pageParam as number),
     initialPageParam: 1,
@@ -21,23 +22,37 @@ export const useNews = (searchQuery: string = '') => {
         ? lastPage?.page + 1
         : undefined,
   });
+  const data = useMemo(
+    () => useNewsQuery.data?.pages.flatMap(item => item.articles) || [],
+    [useNewsQuery.data],
+  );
+  const refetch = useCallback(
+    (toEmpty: boolean = false) => {
+      queryClient.setQueryData(
+        [QUERIES_KEYS.news],
+        (old: {pageParams: number[]; pages: newResponseType[]}) => {
+          return {
+            pageParams: toEmpty ? [] : [old?.pageParams?.[0]],
+            pages: toEmpty ? [] : [old?.pages?.[0]],
+          };
+        },
+      );
+      useNewsQuery.refetch();
+    },
+    [queryClient, useNewsQuery],
+  );
 
-  const refetch = () => {
-    queryClient.setQueryData(
-      QUERIES_KEYS.news,
-      (old: {pageParams: number[]; pages: newResponseType[]}) => {
-        return {
-          pageParams: [old?.pageParams?.[0]],
-          pages: [old?.pages?.[0]],
-        };
-      },
-    );
-    useNewsQuery.refetch();
-  };
-
+  const fetchNextPage = useCallback(
+    () =>
+      !useNewsQuery.isFetching &&
+      !useNewsQuery.isError &&
+      useNewsQuery.fetchNextPage(),
+    [useNewsQuery],
+  );
   return {
     ...useNewsQuery,
-    data: useNewsQuery.data?.pages.flatMap(item => item.articles) || [],
+    data,
     refetch,
+    fetchNextPage,
   };
 };
