@@ -26,21 +26,15 @@ export const useNews = (searchQuery: string = '') => {
     () => useNewsQuery.data?.pages.flatMap(item => item.articles) || [],
     [useNewsQuery.data],
   );
-  const refetch = useCallback(
-    (toEmpty: boolean = false) => {
-      queryClient.setQueryData(
-        [QUERIES_KEYS.news],
-        (old: {pageParams: number[]; pages: newResponseType[]}) => {
-          return {
-            pageParams: toEmpty ? [] : [old?.pageParams?.[0]],
-            pages: toEmpty ? [] : [old?.pages?.[0]],
-          };
-        },
-      );
-      useNewsQuery.refetch();
-    },
-    [queryClient, useNewsQuery],
-  );
+  const refetch = useCallback(() => {
+    queryClient.setQueryData([QUERIES_KEYS.news], () => {
+      return {
+        pageParams: [],
+        pages: [],
+      };
+    });
+    useNewsQuery.refetch();
+  }, [queryClient, useNewsQuery]);
 
   const fetchNextPage = useCallback(
     () =>

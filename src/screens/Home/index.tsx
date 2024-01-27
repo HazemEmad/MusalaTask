@@ -9,7 +9,7 @@ function Home(): React.JSX.Element {
   return (
     <>
       <Search
-        onSearch={() => refetch(true)}
+        onSearch={refetch}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />
