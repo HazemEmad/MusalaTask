@@ -6,8 +6,8 @@
   },
   "home": {
     "title": "الرئيسيه",
-    "by": "بواسطه: ",
-    "source": "المصدر: ",
+    "by": "بواسطه:",
+    "source": "المصدر:",
     "searchPlaceHolder": "اكتب كلمات للبحث"
   },
   "details": {

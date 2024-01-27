@@ -1,10 +1,14 @@
-import moment from 'moment';
 import React, {FC, memo} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Text, View} from 'react-native';
 import {articles} from '../../../services/newsService/types';
 import {style} from './style';
 import AppImage from '../../common/Image/Image';
+
+import moment from 'moment';
+import 'moment/locale/ar';
+import i18n from '../../../localization/i18n';
+moment.locale(i18n.language);
 
 const DetailsCard: FC<{article: articles}> = ({article}) => {
   const [t] = useTranslation();

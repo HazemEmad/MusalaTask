@@ -20,6 +20,7 @@ export const style = StyleSheet.create({
     fontSize: fs(15),
     color: '#000',
     textAlign: 'left',
+    marginEnd: pxW(5),
   },
   boldText: {
     fontWeight: 'bold',
