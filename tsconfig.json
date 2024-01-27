@@ -2,6 +2,17 @@
   "extends": "@react-native/typescript-config/tsconfig.json",
   "compilerOptions": {
     "moduleResolution": "Bundler",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@navigations/*": ["src/navigations/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@localization/*": ["src/localization/*"],
+      "@services/*": ["src/services/*"],
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@screens/*": ["src/screens/*"],
+      "@utils/*": ["src/utils/*"]
+    }
   }
 }

@@ -1,7 +1,7 @@
 import React, {memo, useState} from 'react';
-import NewsList from '../../components/Home/NewsList';
-import Search from '../../components/Home/SearchCard';
-import {useNews} from '../../hooks/useNews';
+import NewsList from '@components/Home/NewsList';
+import Search from '@components/Home/SearchCard';
+import {useNews} from '@hooks/useNews';
 
 function Home(): React.JSX.Element {
   const [searchQuery, setSearchQuery] = useState<string>();

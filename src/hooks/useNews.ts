@@ -1,7 +1,7 @@
 import {useInfiniteQuery, useQueryClient} from '@tanstack/react-query';
-import {newsService} from '../services/newsService';
-import {newResponseType} from '../services/newsService/types';
-import {QUERIES_KEYS} from '../utils/constants';
+import {newsService} from '@services/newsService';
+import {newResponseType} from '@services/newsService/types';
+import {QUERIES_KEYS} from '@utils/constants';
 import {useCallback, useMemo} from 'react';
 
 export type NewsParams = {

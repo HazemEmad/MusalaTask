@@ -1,5 +1,5 @@
 import React, {FC, memo} from 'react';
-import DetailsCard from '../../components/Details/DetailsCard';
+import DetailsCard from '@components/Details/DetailsCard';
 import {DetailsScreenProps} from './types/Details.types';
 import {ScrollView} from 'react-native';
 

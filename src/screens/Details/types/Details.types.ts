@@ -1,7 +1,7 @@
 import {RouteProp} from '@react-navigation/native';
-import {HomeStackParamList} from '../../../navigations/HomeStack/types/HomeStack.type';
+import {HomeStackParamList} from '@navigations/HomeStack/types/HomeStack.type';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {articles} from '../../../services/newsService/types';
+import {articles} from '@services/newsService/types';
 
 export interface DetailsScreen {
   article: articles;

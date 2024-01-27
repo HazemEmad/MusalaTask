@@ -2,7 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import i18n, {ModuleType} from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import {NativeModules, Platform} from 'react-native';
-import {STORE_LANGUAGE_KEY} from '../utils/constants';
+import {STORE_LANGUAGE_KEY} from '@utils/constants';
 import {ar, en} from './translations';
 // Get device language
 const deviceLanguage =

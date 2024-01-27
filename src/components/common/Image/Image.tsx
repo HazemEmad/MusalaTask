@@ -9,7 +9,7 @@ const AppImage: FC<{uri: string; style?: StyleProp<ImageStyle>}> = ({
     <Image
       style={style}
       source={{uri}}
-      defaultSource={require('../../../assets/images/placeholderImage.png')}
+      defaultSource={require('@assets/images/placeholderImage.png')}
     />
   );
 };

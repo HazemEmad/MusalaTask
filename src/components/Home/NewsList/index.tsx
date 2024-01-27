@@ -1,9 +1,9 @@
 import React, {FC, memo, useCallback, useMemo} from 'react';
 import {FlatList, RefreshControl} from 'react-native';
-import {articles} from '../../../services/newsService/types';
-import Empty from '../../common/Empty';
-import Loader from '../../common/Loader';
-import NewsCard from '../NewsCard';
+import {articles} from '@services/newsService/types';
+import Empty from '@components/common/Empty';
+import Loader from '@components/common/Loader';
+import NewsCard from '@components/Home/NewsCard';
 import {style} from './style';
 import {NewsListType} from './types/NewsListType.type';
 

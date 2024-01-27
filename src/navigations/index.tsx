@@ -4,11 +4,11 @@ import React, {useCallback} from 'react';
 
 import {useTranslation} from 'react-i18next';
 import {StyleSheet} from 'react-native';
-import TabBarLabel from '../components/common/TabBarLabel';
-import Settings from '../screens/Settings';
-import {fs} from '../utils/layouts';
+import TabBarLabel from '@components/common/TabBarLabel';
+import Settings from '@screens/Settings';
+import {fs} from '@utils/layouts';
 import HomeStack from './HomeStack';
-import {MAIN_NAV} from '../utils/constants';
+import {MAIN_NAV} from '@utils/constants';
 
 const Tab = createBottomTabNavigator();
 const AppNavigation = () => {

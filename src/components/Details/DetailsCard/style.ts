@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {fs, pxH, pxW} from '../../../utils/layouts';
+import {fs, pxH, pxW} from '@utils/layouts';
 
 export const style = StyleSheet.create({
   image: {

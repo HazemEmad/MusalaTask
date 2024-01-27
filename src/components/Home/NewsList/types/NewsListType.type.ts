@@ -1,4 +1,4 @@
-import {articles} from '../../../../services/newsService/types';
+import {articles} from '@services/newsService/types';
 
 export type NewsListType = {
   news: articles[];
