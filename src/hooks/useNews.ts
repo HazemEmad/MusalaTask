@@ -24,7 +24,7 @@ export const useNews = (searchQuery: string = '') => {
   });
 
   const data = useMemo(
-    () => useNewsQuery.data?.pages.flatMap(item => item.articles) || [],
+    () => useNewsQuery.data?.pages.flatMap(item => item?.articles) || [],
     [useNewsQuery.data],
   );
 
