@@ -1,25 +1,33 @@
-import React, {memo, useEffect} from 'react';
-
-import {AxiosError} from 'axios';
-import {StyleSheet, View} from 'react-native';
-import {newsService} from '../../services/newsService';
+import React, {memo, useState} from 'react';
+import NewsList from '../../components/Home/NewsList';
+import {useNews} from '../../hooks/useNews';
 
 function Home(): React.JSX.Element {
-  const get = async () => {
-    await newsService
-      .everyThing()
-      .then(res => {
-        console.log(res);
-      })
-      .catch((err: AxiosError) => {
-        console.log(err.response?.data);
-      });
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const {data, isFetching, refetch, fetchNextPage, isError} =
+    useNews(searchQuery);
+
+  const fetchNext = () => {
+    if (!isFetching && !isError) {
+      fetchNextPage();
+    }
   };
-  useEffect(() => {
-    //get();
-  }, []);
-  return <View style={style.container} />;
+
+  return (
+    <>
+      {/* <Search
+        onSearch={handleSearch}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      /> */}
+      <NewsList
+        loading={isFetching}
+        news={data}
+        refreshData={refetch}
+        onEndReached={fetchNext}
+      />
+    </>
+  );
 }
 export default memo(Home);
-
-const style = StyleSheet.create({container: {flex: 1}});

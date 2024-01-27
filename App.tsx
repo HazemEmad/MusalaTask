@@ -1,12 +1,16 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
-import './src/localization/i18n';
 import AppNavigation from './src/navigations';
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import './src/localization/i18n';
 
 function App(): React.JSX.Element {
+  const queryClient = new QueryClient();
   return (
     <SafeAreaView style={style.container}>
-      <AppNavigation />
+      <QueryClientProvider client={queryClient}>
+        <AppNavigation />
+      </QueryClientProvider>
     </SafeAreaView>
   );
 }

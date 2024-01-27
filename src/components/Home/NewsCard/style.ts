@@ -54,4 +54,10 @@ export const style = StyleSheet.create({
   mb7: {
     marginBottom: pxH(7),
   },
+  w50: {
+    width: '50%',
+  },
+  w100: {
+    width: '100%',
+  },
 });

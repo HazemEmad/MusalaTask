@@ -1,8 +1,10 @@
 import React, {FC, memo} from 'react';
+import {useTranslation} from 'react-i18next';
 import {Text} from 'react-native';
 
 const Empty: FC<{loading: boolean}> = ({loading}) => {
-  return !loading ? <Text>You Don't have any Posts</Text> : null;
+  const [t] = useTranslation();
+  return !loading ? <Text>{t('common.empty')}</Text> : null;
 };
 
 export default memo(Empty);

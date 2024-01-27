@@ -8,25 +8,15 @@ export const newsService = {
   everyThing: (q: string = '', page: number = 1) =>
     HTTP.get<newResponseType>('everything', {
       params: {
-        q: encodeURI(`"${q}"`),
+        q: encodeURIComponent(`"${q}"`),
         page,
         language: i18n.language,
+        pageSize: 20,
       },
     })
-      .then(res => res.data)
+      .then(res => ({...res.data, page}))
       .catch((err: AxiosError<newResponseErrorType>) => {
         Alert.alert('Error', err.response?.data?.message);
-      }),
-  topHeadlines: (q: string = '', page: number = 1) =>
-    HTTP.get<newResponseType>('top-headlines', {
-      params: {
-        q: encodeURI(`"${q}"`),
-        page,
-        language: i18n.language,
-      },
-    })
-      .then(res => res.data)
-      .catch((err: AxiosError<newResponseErrorType>) => {
-        Alert.alert('Error', err.response?.data?.message);
+        throw err.response?.data;
       }),
 };

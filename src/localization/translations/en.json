@@ -5,6 +5,12 @@
     "changeLang": "Change Language To Arabic"
   },
   "home": {
-    "title": "Home"
+    "title": "Home",
+    "by": "By: ",
+    "source": "Source: ",
+    "searchPlaceHolder": "Take your Search"
+  },
+  "common": {
+    "empty": "You Don't have any news"
   }
 }
