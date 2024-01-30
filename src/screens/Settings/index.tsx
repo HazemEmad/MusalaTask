@@ -1,8 +1,8 @@
 import React, {memo, useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
-import {I18nManager, Pressable, StyleSheet, Text, View} from 'react-native';
+import {I18nManager, Pressable, Text, View} from 'react-native';
 import RNRestart from 'react-native-restart';
-import {fs, pxW} from '@utils/layouts';
+import {style} from './style';
 
 function Settings(): React.JSX.Element {
   const {t, i18n} = useTranslation();
@@ -23,12 +23,3 @@ function Settings(): React.JSX.Element {
   );
 }
 export default memo(Settings);
-
-const style = StyleSheet.create({
-  container: {flex: 1, padding: pxW(25)},
-  textStyle: {
-    fontWeight: 'bold',
-    fontSize: fs(18),
-    alignSelf: 'flex-start',
-  },
-});

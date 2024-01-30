@@ -1,6 +1,7 @@
 import React, {FC, memo} from 'react';
 import {useTranslation} from 'react-i18next';
-import {StyleSheet, Text} from 'react-native';
+import {Text} from 'react-native';
+import {style} from './style';
 
 const Empty: FC<{loading: boolean}> = ({loading}) => {
   const [t] = useTranslation();
@@ -8,8 +9,3 @@ const Empty: FC<{loading: boolean}> = ({loading}) => {
 };
 
 export default memo(Empty);
-const style = StyleSheet.create({
-  text: {
-    alignSelf: 'center',
-  },
-});
